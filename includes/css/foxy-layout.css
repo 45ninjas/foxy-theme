@@ -50,10 +50,10 @@
 {
 	display: flex;
 	flex-direction: column;
-	margin: 0 -15px;
+	/* margin: 0 -15px; */
 	justify-content: space-between;
 }
-.col
+.columns .col
 {
 	padding: 0 15px;
 }
@@ -181,6 +181,15 @@ body
 	.columns
 	{
 		flex-direction: row;
+	}
+	.columns .col:first-child
+	{
+		padding-left: 0;
+	}
+
+	.columns .col:last-child
+	{
+		padding-right: 0;
 	}
 	.footer .content
 	{
