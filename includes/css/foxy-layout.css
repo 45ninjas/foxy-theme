@@ -2,12 +2,7 @@
 {
 	border-radius: 50%;
 	border: 3px solid;
-	/* background-color:#ffffff21; */
-	/* background-color: #885535; */
-
-	background-image: url(../../graphics/1589914351089.jpg);
-	background-attachment: fixed;
-	background-position-x: center;
+	background-color: #885535;
 }
 
 .content
@@ -17,6 +12,12 @@
 	padding: 6em 1em;
 }
 
+.band
+{
+	background-color: #1d2031;
+	/* background-color: #3f4252; */
+}
+
 .container
 {
 	margin: auto;
@@ -24,13 +25,12 @@
 
 .hero
 {
-	/* padding: 10em 1em; */
 	padding: 0;
-	height: 60vh;
+	max-height: 80vh;
+	min-height: 60vh;
+	height: 60vw;
 	display: block;
 	text-align: center;
-
-	background-image: linear-gradient(to bottom right, #ffa45740, #2e314196);
 }
 
 .hero .title
@@ -87,13 +87,78 @@ a:hover
 }
 .footer
 {
-	background-color: #1d2031db;
-	color: #acadb5;
+	background-color: #191a1cdb;
+	color: #9d9d9d;
 }
 .footer .content
 {
 	padding-bottom: 1em;
-	padding-top: 50vh;
+}
+
+.footer.slope
+{
+	clip-path: polygon(
+		0 var(--slope),
+		100% 0,
+		100% 100%,
+		0 100%
+	);
+}
+
+.hero.slope
+{
+	clip-path: polygon(
+		0 0,
+		100% 0,
+		100% 100%,
+		0 calc(100% - var(--slope))
+	);
+}
+
+.inverse-slope
+{
+	clip-path: polygon(
+		0 0,
+		100% var(--slope),
+		100% calc(100% - var(--slope)),
+		0 100%
+	);
+}
+
+.slope
+{
+	clip-path: polygon(
+		0 var(--slope),
+		100% 0,
+		100% 100%,
+		0 calc(100% - var(--slope))
+	);
+}
+
+.band .card
+{
+	background-color: #2e3141;
+}
+
+.card
+{
+	background-color: #393c4d;
+	border-radius: var(--radius);
+
+	padding: 1em;
+	margin: 1em 0;
+
+	position: relative;
+}
+
+.card img:first-child
+{
+	width: calc(100% + 2em);
+	margin: -1em;
+	border-top-left-radius: var(--radius);
+	border-top-right-radius: var(--radius);
+
+	margin-bottom: 1em;
 }
 
 body
@@ -105,23 +170,39 @@ body
 	line-height: 1.5;
 }
 
+:root
+{
+	--slope: 4vw;
+	--radius: 10px;
+}
+
 @media only screen and (min-width: 700px)
 {
 	.columns
 	{
 		flex-direction: row;
 	}
-	.content
-	{
-		padding: 10em 4em;
-	}
 	.footer .content
 	{
 		padding-bottom: 1em;
 	}
+	.cards
+	{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.card
+	{
+		margin: 1em 0;
+		width: calc(50% - 3em);
+	}
 }
 
-@media only screen and (min-width: 550px)
+@media only screen and (min-width: 1200px)
 {
-
+	.content
+	{
+		padding: 10em 4em;
+	}
 }
